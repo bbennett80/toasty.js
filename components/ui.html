@@ -63,3 +63,34 @@
 {% macro tooltip(text, content) %}
   <div class="tooltip" data-tip="{{ text }}">{{ content }}</div>
 {% endmacro %}
+
+{% macro accordion(items, default_open=0) %}
+<div class="join join-vertical w-full">
+  {% for title, content in items %}
+  <div class="collapse collapse-arrow join-item border border-base-300">
+    <input type="radio" name="accordion" {% if loop.index0 == default_open %}checked="checked"{% endif %}/>
+    <div class="collapse-title text-xl font-medium">
+      {{ title }}
+    </div>
+    <div class="collapse-content">
+      <p>{{ content }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+
+{% macro tabs(tab_items, default_active=0) %}
+<div role="tablist" class="tabs tabs-lifted">
+  {% for title, content in tab_items %}
+  <input type="radio" name="tabs" role="tab"
+         class="tab"
+         aria-label="{{ title }}"
+         {% if loop.index0 == default_active %}checked="checked"{% endif %}/>
+  <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+    {{ content }}
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
