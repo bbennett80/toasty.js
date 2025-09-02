@@ -102,3 +102,6 @@ If you want **full control**, remove the inline background setting in the JS and
 
 ## License  
 MIT License – Free to use and modify.  
+
+## Components (WIP)
+A side, to a side, of a side project with DaisyUI and Jinja2 component library.
