@@ -1,0 +1,22 @@
+{% macro navbar(title="My App", links=[]) %}
+<div class="navbar bg-base-100 shadow">
+  <div class="flex-1">
+    <a class="btn btn-ghost text-xl">{{ title }}</a>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      {% for text, url in links %}
+      <li><a href="{{ url }}">{{ text }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro footer(text="© 2025 My App") %}
+<footer class="footer footer-center p-4 bg-base-300 text-base-content mt-10">
+  <aside>
+    <p>{{ text }}</p>
+  </aside>
+</footer>
+{% endmacro %}
