@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% import "components/forms.html" as forms %}
+{% import "components/ui.html" as ui %}
+{% import "components/layout.html" as layout %}
+
+{% block title %}Styleguide{% endblock %}
+
+{% block content %}
+  <h1 class="text-3xl font-bold mb-6">Styleguide / Component Catalog</h1>
+
+  <section class="mb-10">
+    <h2 class="text-2xl mb-2">Forms</h2>
+    {{ forms.input("username", "Username:", "text", placeholder="Type here") }}
+    {{ forms.input("password", "Password:", "password", placeholder="••••••") }}
+    {{ forms.select("role", "Role:", [("admin", "Admin"), ("user", "User")]) }}
+    <div class="mt-4 space-x-2">
+      {{ forms.button("Primary", "btn-primary") }}
+      {{ forms.button("Secondary", "btn-secondary") }}
+      {{ forms.button("Accent", "btn-accent") }}
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl mb-2">UI</h2>
+    {{ ui.alert("This is an info alert", "info") }}
+    {{ ui.alert("Success! Operation completed", "success") }}
+    {{ ui.alert("Warning! Something may be wrong", "warning") }}
+    {{ ui.alert("Error! Something went wrong", "error") }}
+    <div class="mt-4 space-x-2">
+      {{ ui.badge("Primary", "primary") }}
+      {{ ui.badge("Secondary", "secondary") }}
+      {{ ui.badge("Accent", "accent") }}
+      {{ ui.badge("Ghost", "ghost") }}
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl mb-2">Layout</h2>
+    {{ layout.navbar("Demo Navbar", [("Home","#"),("Docs","#"),("About","#")]) }}
+    {{ layout.footer("Demo footer © 2025") }}
+  </section>
+{% endblock %}
