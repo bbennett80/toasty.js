@@ -1,0 +1,32 @@
+{% macro button(label="Submit", color="btn-primary", type="submit") %}
+  <button type="{{ type }}" class="btn {{ color }}">{{ label }}</button>
+{% endmacro %}
+
+{% macro input(name, label="", type="text", value="", placeholder="") %}
+  <label class="form-control w-full max-w-xs">
+    <div class="label">
+      <span class="label-text">{{ label }}</span>
+    </div>
+    <input 
+      type="{{ type }}" 
+      id="{{ name }}" 
+      name="{{ name }}" 
+      value="{{ value }}" 
+      placeholder="{{ placeholder }}" 
+      class="input input-bordered w-full max-w-xs"
+    >
+  </label>
+{% endmacro %}
+
+{% macro select(name, label="", options=[]) %}
+  <label class="form-control w-full max-w-xs">
+    <div class="label">
+      <span class="label-text">{{ label }}</span>
+    </div>
+    <select id="{{ name }}" name="{{ name }}" class="select select-bordered w-full max-w-xs">
+      {% for value, text in options %}
+        <option value="{{ value }}">{{ text }}</option>
+      {% endfor %}
+    </select>
+  </label>
+{% endmacro %}
