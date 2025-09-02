@@ -1,0 +1,65 @@
+{# components/ui.html #}
+{% macro alert(message, level="info") %}
+  <div role="alert" class="alert alert-{{ level }} my-2">{{ message }}</div>
+{% endmacro %}
+
+{% macro badge(text, color="primary") %}
+  <span class="badge badge-{{ color }}">{{ text }}</span>
+{% endmacro %}
+
+{% macro avatar(src, alt="Avatar", size="w-16 h-16") %}
+  <img src="{{ src }}" alt="{{ alt }}" class="rounded-full {{ size }}">
+{% endmacro %}
+
+{% macro breadcrumbs(items=[]) %}
+  <ul class="breadcrumb">
+    {% for text, url in items %}
+      <li><a href="{{ url }}">{{ text }}</a></li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro card(title, body, actions="") %}
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">{{ title }}</h2>
+      <p>{{ body }}</p>
+      {% if actions %}
+        <div class="card-actions justify-end">{{ actions }}</div>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro collapse(title, body) %}
+  <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+    <div class="collapse-title text-xl font-medium">{{ title }}</div>
+    <div class="collapse-content">{{ body }}</div>
+  </div>
+{% endmacro %}
+
+{% macro dropdown(label, items=[]) %}
+  <div class="dropdown">
+    <label tabindex="0" class="btn m-1">{{ label }}</label>
+    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+      {% for text, url in items %}
+        <li><a href="{{ url }}">{{ text }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endmacro %}
+
+{% macro drawer(content, sidebar) %}
+  <div class="drawer">
+    <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content">{{ content }}</div>
+    <div class="drawer-side">
+      <label for="my-drawer" class="drawer-overlay"></label>
+      <div class="menu p-4 overflow-y-auto w-80 bg-base-200">{{ sidebar }}</div>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro tooltip(text, content) %}
+  <div class="tooltip" data-tip="{{ text }}">{{ content }}</div>
+{% endmacro %}
