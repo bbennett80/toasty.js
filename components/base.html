@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}My App{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      plugins: [daisyui],
+      daisyui: { themes: ["light", "dark"] }
+    }
+  </script>
+</head>
+<body class="bg-base-200 text-base-content">
+  {% import "components/layout.html" as layout %}
+  {{ layout.navbar("FastAPI + DaisyUI", [("Home", "/"), ("Form", "/form"), ("Styleguide", "/styleguide")]) }}
+
+  <main class="p-6">
+    {% block content %}{% endblock %}
+  </main>
+
+  {{ layout.footer("Built with DaisyUI 5.1.5") }}
+</body>
+</html>
